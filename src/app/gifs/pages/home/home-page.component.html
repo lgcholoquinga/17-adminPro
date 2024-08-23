@@ -1,0 +1,10 @@
+<div class="row mt-2 mb-2">
+	<div class="col-12">
+		<app-search-box (search)="onSearch($event)" />
+	</div>
+	<div class="col-12 mt-3 home-card">
+		@if (gifs$ | async; as gifs) {
+			<app-card-list [gifs]="gifs" />
+		}
+	</div>
+</div>

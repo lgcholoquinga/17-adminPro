@@ -1,0 +1,12 @@
+<div class="sidebar bg-dark p-3">
+	<h3 class="text-white">GifsApp</h3>
+	<hr class="text-white" />
+
+	<div class="list-group">
+		@for (tag of tags; track $index) {
+			<button class="list-group-item list-group-item-action">{{ tag | titlecase }}</button>
+		} @empty {
+			<h5 class="text-white">Empty Tags</h5>
+		}
+	</div>
+</div>

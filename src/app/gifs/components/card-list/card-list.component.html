@@ -1,0 +1,10 @@
+<div class="card-grid">
+	@for (gif of gifs; track $index) {
+		<div class="card">
+			<img [src]="gif.images.original.url" class="card-img-top" [alt]="gif.title" style="height: 250px" />
+			<div class="card-body">
+				<h5 class="card-title">{{ gif.title }}</h5>
+			</div>
+		</div>
+	}
+</div>
