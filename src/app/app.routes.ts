@@ -6,8 +6,12 @@ export const routes: Routes = [
 		loadChildren: () => import('./gifs/gifs.routes').then((r) => r.GIFS_ROUTES),
 	},
 	{
+		path: 'products',
+		loadChildren: () => import('./products/products.routes').then((r) => r.PRODUCTS_ROUTES),
+	},
+	{
 		path: '',
-		redirectTo: '/gifs',
+		redirectTo: '/products',
 		pathMatch: 'full',
 	},
 ];
