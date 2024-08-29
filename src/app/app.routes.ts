@@ -2,16 +2,16 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
 	{
+		path: 'auth',
+		loadChildren: () => import('./auth/auth.routes').then((r) => r.AUTH_ROUTES),
+	},
+	{
 		path: 'gifs',
 		loadChildren: () => import('./gifs/gifs.routes').then((r) => r.GIFS_ROUTES),
 	},
 	{
-		path: 'products',
-		loadChildren: () => import('./products/products.routes').then((r) => r.PRODUCTS_ROUTES),
-	},
-	{
 		path: '',
-		redirectTo: '/products',
+		redirectTo: '/auth',
 		pathMatch: 'full',
 	},
 ];
