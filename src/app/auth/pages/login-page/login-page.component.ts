@@ -1,15 +1,24 @@
-import { JsonPipe, NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { AbstractControl, FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { ErrorFormComponent } from '@common/components';
-import { getFormControlError, NgxValidators } from '@common/validators';
+import { NgxValidators } from '@common/validators';
+import { ControlErrorDirective, FormSubmitDirective } from '@common/directives';
 
 @Component({
 	selector: 'auth-login-page',
 	standalone: true,
-	imports: [RouterLink, NgIf, ReactiveFormsModule, ErrorFormComponent, JsonPipe],
+	imports: [
+		RouterLink,
+		NgIf,
+		NgClass,
+		ReactiveFormsModule,
+		ErrorFormComponent,
+		FormSubmitDirective,
+		ControlErrorDirective,
+	],
 	templateUrl: './login-page.component.html',
 	styleUrl: './login-page.component.scss',
 })
@@ -28,9 +37,5 @@ export default class LoginPageComponent {
 		}
 
 		console.log(this.loginForm.value);
-	}
-
-	getError(formControl: AbstractControl) {
-		return getFormControlError(formControl);
 	}
 }
