@@ -5,6 +5,7 @@ import { catchError, map, Observable, of, throwError } from 'rxjs';
 import { environment } from '@environments/environment';
 import { CheckTokenResponse, LoginResponse, User } from '../models';
 import { AuthStatus } from '../enums';
+import { LocalStorageService } from '@common/storage';
 
 @Injectable({
 	providedIn: 'root',
@@ -12,6 +13,7 @@ import { AuthStatus } from '../enums';
 export class AuthService {
 	private readonly baseUrl = environment.API_URL_AUTH + '/auth';
 	private http = inject(HttpClient);
+	private localStorage = inject(LocalStorageService);
 
 	private _currentUser = signal<User | null>(null);
 	private _authStatus = signal<AuthStatus>(AuthStatus.checking);
@@ -47,7 +49,7 @@ export class AuthService {
 	private setAuthentication(user: User, token: string): boolean {
 		this._currentUser.set(user);
 		this._authStatus.set(AuthStatus.authenticated);
-		localStorage.setItem('token', token);
+		this.localStorage.setItem('token', token);
 		return true;
 	}
 }
