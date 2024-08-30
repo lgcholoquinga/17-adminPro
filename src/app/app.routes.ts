@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { isAuthenticatedGuard } from '@auth/core/guards';
 
 export const routes: Routes = [
 	{
@@ -6,8 +7,9 @@ export const routes: Routes = [
 		loadChildren: () => import('./auth/auth.routes').then((r) => r.AUTH_ROUTES),
 	},
 	{
-		path: 'gifs',
-		loadChildren: () => import('./gifs/gifs.routes').then((r) => r.GIFS_ROUTES),
+		path: 'admin',
+		canActivate: [isAuthenticatedGuard],
+		loadChildren: () => import('./admin/admin.routes').then((r) => r.ADMIN_ROUTES),
 	},
 	{
 		path: '',
