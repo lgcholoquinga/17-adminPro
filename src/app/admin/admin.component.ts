@@ -1,15 +1,12 @@
 import { JsonPipe } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
-import { AuthService } from '@auth/core/services/auth.service';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
 	selector: 'app-admin',
 	standalone: true,
-	imports: [JsonPipe],
+	imports: [JsonPipe, RouterOutlet],
 	templateUrl: './admin.component.html',
 	styleUrl: './admin.component.scss',
 })
-export default class AdminComponent {
-	private authService = inject(AuthService);
-	public user = computed(() => this.authService.currentUser());
-}
+export default class AdminComponent {}

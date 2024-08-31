@@ -31,8 +31,8 @@ export default class LoginPageComponent {
 	private router = inject(Router);
 
 	public loginForm = this.fb.nonNullable.group({
-		email: ['maria23@gmail.com', [NgxValidators.required('The email field is required.'), NgxValidators.email()]],
-		password: ['123456', [NgxValidators.required(), NgxValidators.minLength(6)]],
+		email: ['', [NgxValidators.required('The email field is required.'), NgxValidators.email()]],
+		password: ['', [NgxValidators.required(), NgxValidators.minLength(6)]],
 	});
 
 	onLogin() {

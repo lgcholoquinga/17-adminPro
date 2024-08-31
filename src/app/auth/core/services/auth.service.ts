@@ -21,6 +21,12 @@ export class AuthService {
 	public currentUser = computed(() => this._currentUser());
 	public authStatus = computed(() => this._authStatus());
 
+	/**
+	 * Method that permit signin
+	 * @param email Email value
+	 * @param password Password value
+	 * @returns Observable value
+	 */
 	login(email: string, password: string): Observable<boolean> {
 		const url = `${this.baseUrl}/login`;
 
