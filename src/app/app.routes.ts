@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { isAuthenticatedGuard } from '@auth/core/guards';
 
 export const routes: Routes = [
 	{
@@ -8,7 +7,7 @@ export const routes: Routes = [
 	},
 	{
 		path: 'admin',
-		canActivate: [isAuthenticatedGuard],
+		canActivate: [],
 		loadChildren: () => import('./admin/admin.routes').then((r) => r.ADMIN_ROUTES),
 	},
 	{
