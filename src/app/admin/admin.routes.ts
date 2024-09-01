@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-export const ADMIN_ROUTES: Routes = [
+export default [
 	{
 		path: '',
 		loadComponent: () => import('./admin.component'),
@@ -20,4 +20,4 @@ export const ADMIN_ROUTES: Routes = [
 			},
 		],
 	},
-];
+] as Routes;

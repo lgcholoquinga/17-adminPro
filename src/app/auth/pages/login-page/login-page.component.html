@@ -1,6 +1,3 @@
-@let emailForm = this.loginForm.controls.email;
-@let passwordForm = this.loginForm.controls.password;
-
 <div class="login-container">
 	<div class="login-form p-4">
 		<h3 class="text-center mb-4">Login</h3>
@@ -11,9 +8,6 @@
 					type="email"
 					class="form-control"
 					id="email"
-					[ngClass]="{
-						'is-invalid': emailForm.invalid && (emailForm.touched || emailForm.dirty),
-					}"
 					placeholder="Email"
 					autocomplete="off"
 					formControlName="email"
@@ -28,9 +22,6 @@
 					placeholder="Password"
 					autocomplete="new-password"
 					formControlName="password"
-					[ngClass]="{
-						'is-invalid': passwordForm.invalid && (passwordForm.touched || passwordForm.dirty),
-					}"
 				/>
 			</div>
 			<div class="mb-3">

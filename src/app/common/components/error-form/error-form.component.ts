@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input } 
 	standalone: true,
 	imports: [NgIf],
 	template: `@if (txtError) {
-		<span class="text-danger">{{ txtError }}</span>
+		<span class="text-error">{{ txtError }}</span>
 	}`,
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })

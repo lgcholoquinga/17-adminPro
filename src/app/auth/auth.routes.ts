@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-export const AUTH_ROUTES: Routes = [
+export default [
 	{
 		path: '',
 		loadComponent: () => import('./auth.component'),
@@ -20,4 +20,4 @@ export const AUTH_ROUTES: Routes = [
 			},
 		],
 	},
-];
+] as Routes;

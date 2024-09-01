@@ -3,12 +3,12 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
 	{
 		path: 'auth',
-		loadChildren: () => import('./auth/auth.routes').then((r) => r.AUTH_ROUTES),
+		loadChildren: () => import('./auth/auth.routes'),
 	},
 	{
 		path: 'admin',
 		canActivate: [],
-		loadChildren: () => import('./admin/admin.routes').then((r) => r.ADMIN_ROUTES),
+		loadChildren: () => import('./admin/admin.routes'),
 	},
 	{
 		path: '404',

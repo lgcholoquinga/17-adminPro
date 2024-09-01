@@ -1,14 +1,28 @@
 $error-color: #dc3545;
+$error-box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
 
 input.ng-invalid.ng-touched {
 	border: 2px solid $error-color;
+
+	&:focus {
+		border-color: $error-color;
+		box-shadow: $error-box-shadow;
+	}
+}
+
+input.ng-invalid.ng-untouched {
+	border: 2px solid #94a3b8;
 }
 
 input.ng-pending.ng-touched {
 	border: 2px solid $error-color;
+
+	&:focus {
+		border-color: $error-color;
+		box-shadow: $error-box-shadow;
+	}
 }
 
-.is-invalid:focus {
-	border-color: $error-color;
-	box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+.text-error {
+	color: $error-color;
 }

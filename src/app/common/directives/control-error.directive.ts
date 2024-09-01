@@ -11,25 +11,42 @@ import { ErrorFormComponent } from '@common/components';
 	standalone: true,
 })
 export class ControlErrorDirective implements OnInit, OnDestroy {
-	private readonly ngControl = inject(NgControl);
-	private readonly form = inject(FormSubmitDirective, { optional: true });
-	private readonly destroy$ = new Subject<void>();
-	private readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
+	private readonly _destroy$ = new Subject<void>();
+	private readonly _ngControl = inject(NgControl);
 
-	private readonly submit$ = this.form ? this.form.submit$ : EMPTY;
-	private readonly blurEvent$ = fromEvent(this.elementRef.nativeElement, 'blur');
+	public elementRef: ElementRef<HTMLInputElement> = inject(ElementRef);
+	private readonly _form = inject(FormSubmitDirective, { optional: true });
+	private readonly _form$ = this._form ? this._form.submit$ : EMPTY;
+	private readonly _blurEvent = fromEvent(this.elementRef.nativeElement, 'blur');
 
-	/* Create dynamic compornet */
 	private readonly vcr = inject(ViewContainerRef);
 	private componentRef!: ComponentRef<ErrorFormComponent>;
 
 	ngOnInit(): void {
-		merge(this.submit$, this.blurEvent$, this.ngControl.statusChanges!)
-			.pipe(takeUntil(this.destroy$))
+		merge(this._form$, this._blurEvent, this._ngControl.statusChanges!)
+			.pipe(takeUntil(this._destroy$))
 			.subscribe(() => {
-				const errorControl = getFormControlError(this.ngControl.control!);
-				this.setError(errorControl);
+				this.setCustomUI();
+
+				if (!this._ngControl.control!.untouched) {
+					const errorControl = getFormControlError(this._ngControl.control!);
+					this.setError(errorControl);
+				}
 			});
+	}
+
+	private setCustomUI() {
+		const control = this._ngControl.control!;
+		if (control.invalid && (control.dirty || control.touched)) {
+			this.elementRef.nativeElement.classList.remove('is-valid');
+			this.elementRef.nativeElement.classList.add('is-invalid');
+		} else if (control.valid) {
+			this.elementRef.nativeElement.classList.remove('is-invalid');
+			this.elementRef.nativeElement.classList.add('is-valid');
+		} else {
+			this.elementRef.nativeElement.classList.remove('is-invalid');
+			this.elementRef.nativeElement.classList.remove('is-valid');
+		}
 	}
 
 	setError(value: string) {
@@ -41,7 +58,7 @@ export class ControlErrorDirective implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.destroy$.next();
-		this.destroy$.complete();
+		this._destroy$.next();
+		this._destroy$.complete();
 	}
 }

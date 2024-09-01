@@ -7,9 +7,7 @@ import { CheckTokenResponse, LoginResponse, User } from '../models';
 import { AuthStatus } from '../enums';
 import { LocalStorageService } from '@common/storage';
 
-@Injectable({
-	providedIn: 'root',
-})
+@Injectable()
 export class AuthService {
 	private readonly baseUrl = environment.API_URL_AUTH + '/auth';
 	private http = inject(HttpClient);
