@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
 import { ErrorFormComponent } from '@common/components';
-import { NgxValidators } from '@common/validators';
+import { customEmailValidator, NgxValidators } from '@common/validators';
 import { ControlErrorDirective, FormSubmitDirective } from '@common/directives';
 import { AuthService } from '@auth/core/services/auth.service';
 
@@ -33,7 +33,7 @@ export default class LoginPageComponent implements OnDestroy {
 	private readonly destroy$ = new Subject<void>();
 
 	public loginForm = this.fb.nonNullable.group({
-		email: ['', [NgxValidators.required('The email field is required.'), NgxValidators.email()]],
+		email: ['', [NgxValidators.required('The email field is required.'), customEmailValidator]],
 		password: ['', [NgxValidators.required(), NgxValidators.minLength(6)]],
 	});
 

@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ControlErrorDirective, FormSubmitDirective } from '@common/directives';
+import { corssPasswordMatchingValidator, customEmailValidator } from '@common/validators';
 
 @Component({
 	selector: 'auth-register-page',
@@ -12,12 +13,15 @@ import { ControlErrorDirective, FormSubmitDirective } from '@common/directives';
 export default class RegisterPageComponent {
 	private readonly _fb = inject(NonNullableFormBuilder);
 
-	public form = this._fb.group({
-		name: ['', [Validators.required]],
-		email: ['', [Validators.required, Validators.email]],
-		password: ['', [Validators.required]],
-		confirmPassword: ['', [Validators.required]],
-	});
+	public form = this._fb.group(
+		{
+			name: ['', [Validators.required]],
+			email: ['', [Validators.required, customEmailValidator]],
+			password: ['', [Validators.required]],
+			confirmPassword: ['', [Validators.required]],
+		},
+		{ validators: [corssPasswordMatchingValidator] },
+	);
 
 	onRegister() {
 		if (this.form.invalid) {

@@ -27,9 +27,10 @@ export class ControlErrorDirective implements OnInit, OnDestroy {
 			.pipe(takeUntil(this._destroy$))
 			.subscribe(() => {
 				this.setCustomUI();
+				const control = this._ngControl.control!;
 
-				if (!this._ngControl.control!.untouched) {
-					const errorControl = getFormControlError(this._ngControl.control!);
+				if (control.dirty || control.touched) {
+					const errorControl = getFormControlError(control);
 					this.setError(errorControl);
 				}
 			});
