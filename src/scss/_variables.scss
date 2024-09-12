@@ -1,17 +1,17 @@
 @import '../../node_modules/bootstrap/scss/functions';
 @import '../../node_modules/bootstrap/scss/variables';
 
-$primary: #3919d7;
-$secondary: #d7195c;
-$terciary: #d7c819;
+// $primary: #3919d7;
+// $secondary: #d7195c;
+// $terciary: #d7c819;
 
-$theme-colors: map-merge(
-	$theme-colors,
-	(
-		'primary': $primary,
-		'secondary': $secondary,
-		'terciary': $terciary,
-	)
-);
+// $theme-colors: map-merge(
+// 	$theme-colors,
+// 	(
+// 		'primary': $primary,
+// 		'secondary': $secondary,
+// 		'terciary': $terciary,
+// 	)
+// );
 
 @import '../../node_modules/bootstrap/scss/bootstrap';
