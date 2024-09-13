@@ -1,0 +1,13 @@
+@if (label) {
+	<label [attr.for]="id" class="form-label">{{ label }}</label>
+}
+<input
+	[attr.id]="id"
+	[type]="type"
+	#txtInput
+	class="form-control"
+	[placeholder]="placeholder"
+	autocomplete="off"
+	(input)="onInput(txtInput.value)"
+	(blur)="onTouched()"
+/>

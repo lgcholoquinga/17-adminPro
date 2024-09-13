@@ -1,19 +1,36 @@
 <div class="login-container">
 	<div class="login-form p-4">
 		<h3 class="text-center mb-4">Login</h3>
-		<form class="" autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+		<form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onLogin()">
 			<div class="mb-3">
-				<label for="email" class="form-label">Email</label>
+				<lg-input label="Email" placeholder="Email" type="email" formControlName="email" />
+			</div>
+
+			<div class="mb-3">
+				<lg-input label="Password" placeholder="Password" type="password" formControlName="password" />
+			</div>
+
+			<div class="mb-3">
+				<label for="adress" class="form-label">Adress</label>
 				<input
-					type="email"
+					type="text"
 					class="form-control"
-					id="email"
-					placeholder="Email"
+					id="adress"
+					placeholder="Adress"
 					autocomplete="off"
-					formControlName="email"
+					formControlName="adress"
 				/>
 			</div>
 			<div class="mb-3">
+				<label for="framework" class="form-label">Framework</label>
+				<select class="form-select" id="framework" formControlName="framework">
+					<option value="" selected>Selected a framework</option>
+					<option value="angular">Angular</option>
+					<option value="react">React</option>
+					<option value="svelte">Svelte</option>
+				</select>
+			</div>
+			<!-- <div class="mb-3">
 				<label for="password" class="form-label">Password</label>
 				<input
 					class="form-control"
@@ -23,7 +40,7 @@
 					autocomplete="new-password"
 					formControlName="password"
 				/>
-			</div>
+			</div> -->
 			<div class="mb-3">
 				<button type="submit" class="btn btn-primary w-100">Login</button>
 			</div>

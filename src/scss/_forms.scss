@@ -1,8 +1,10 @@
 $error-color: #dc3545;
 $error-box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25);
+$border-input: 1px;
 
+select.ng-invalid.ng-touched,
 input.ng-invalid.ng-touched {
-	border: 2px solid $error-color;
+	border: $border-input solid $error-color;
 
 	&:focus {
 		border-color: $error-color;
@@ -10,12 +12,9 @@ input.ng-invalid.ng-touched {
 	}
 }
 
-input.ng-invalid.ng-untouched {
-	border: 2px solid #94a3b8;
-}
-
+select.ng-pending.ng-touched,
 input.ng-pending.ng-touched {
-	border: 2px solid $error-color;
+	border: $border-input solid $error-color;
 
 	&:focus {
 		border-color: $error-color;

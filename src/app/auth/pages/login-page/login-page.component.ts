@@ -3,7 +3,7 @@ import { Component, inject, OnDestroy } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-import { ErrorFormComponent } from '@common/components';
+import { LgInputComponent } from '@common/components';
 import { customEmailValidator, NgxValidators } from '@common/validators';
 import { ControlErrorDirective, FormSubmitDirective } from '@common/directives';
 import { AuthService } from '@auth/core/services/auth.service';
@@ -19,9 +19,9 @@ import { Subject, takeUntil } from 'rxjs';
 		NgIf,
 		NgClass,
 		ReactiveFormsModule,
-		ErrorFormComponent,
 		FormSubmitDirective,
 		ControlErrorDirective,
+		LgInputComponent,
 	],
 	templateUrl: './login-page.component.html',
 	styleUrl: './login-page.component.scss',
@@ -34,7 +34,9 @@ export default class LoginPageComponent implements OnDestroy {
 
 	public loginForm = this.fb.nonNullable.group({
 		email: ['', [NgxValidators.required('The email field is required.'), customEmailValidator]],
-		password: ['', [NgxValidators.required(), NgxValidators.minLength(6)]],
+		password: ['', [NgxValidators.required('The password field is required.'), NgxValidators.minLength(6)]],
+		adress: ['', [NgxValidators.required('The adress field is required.')]],
+		framework: ['', [NgxValidators.required('Selected a framework')]],
 	});
 
 	onLogin() {

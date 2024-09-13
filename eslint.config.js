@@ -13,7 +13,10 @@ module.exports = tseslint.config(
 			...angular.configs.tsRecommended,
 		],
 		processor: angular.processInlineTemplates,
-		rules: {},
+		rules: {
+			'no-empty-function': 'off',
+			'@typescript-eslint/no-empty-function': 'off',
+		},
 	},
 	{
 		files: ['**/*.html'],
