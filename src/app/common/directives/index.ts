@@ -4,3 +4,4 @@ export * from './btn-color.directive';
 export * from './lg-appearance.directive';
 export * from './lg-disabled.directive';
 export * from './lg-input-error.directive';
+export * from './lg-input-color.directive';

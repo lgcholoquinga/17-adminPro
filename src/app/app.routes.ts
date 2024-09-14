@@ -11,12 +11,16 @@ export const routes: Routes = [
 		loadChildren: () => import('./admin/admin.routes'),
 	},
 	{
+		path: 'demo',
+		loadChildren: () => import('./demo/demo.routes'),
+	},
+	{
 		path: '404',
 		loadComponent: () => import('./common/pages/not-found-page/not-found-page.component'),
 	},
 	{
 		path: '',
-		redirectTo: '/auth',
+		redirectTo: '/demo',
 		pathMatch: 'full',
 	},
 	{

@@ -21,6 +21,8 @@ export class LgInputComponent implements ControlValueAccessor {
 	@Input() label = '';
 	@Input() type = 'text';
 	@Input() placeholder = '';
+	@Input() inputClass = '';
+	@Input() labelClass = '';
 
 	public valueInput: string | number = '';
 

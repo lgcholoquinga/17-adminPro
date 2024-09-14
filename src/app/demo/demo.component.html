@@ -1,0 +1,22 @@
+<section class="container">
+	<h1 class="text-center">Demo - Controls</h1>
+	<hr />
+	<h3>Buttons</h3>
+	<div class="d-flex gap-3">
+		<button lgButton>Primary</button>
+		<button lgButton color="secondary">Secondary</button>
+		<button lgButton color="success">Success</button>
+		<button lgButton color="danger">Danger</button>
+		<button lgButton color="info">Info</button>
+		<button lgButton color="success" [disabled]="true">Success</button>
+	</div>
+	<h3>Inputs</h3>
+	<lg-input placeholder="Input type text" inputClass="mb-4" />
+	<lg-input type="number" placeholder="Input type number" inputClass="mb-4" />
+	<lg-input type="password" placeholder="Input type password" inputClass="mb-4" />
+	<lg-input type="email" placeholder="Input type email" inputClass="mb-4" />
+	<lg-input label="Label" placeholder="Input with label" inputClass="mb-4" />
+
+	<input type="text" placeholder="Input basic" lgInput [disabled]="true" class="mb-4" />
+	<input type="password" placeholder="Password example" lgInput />
+</section>
