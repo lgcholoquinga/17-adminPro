@@ -35,8 +35,6 @@ export default class LoginPageComponent implements OnDestroy {
 	public loginForm = this.fb.nonNullable.group({
 		email: ['', [NgxValidators.required('The email field is required.'), customEmailValidator]],
 		password: ['', [NgxValidators.required('The password field is required.'), NgxValidators.minLength(6)]],
-		adress: ['', [NgxValidators.required('The adress field is required.')]],
-		framework: ['', [NgxValidators.required('Selected a framework')]],
 	});
 
 	onLogin() {
