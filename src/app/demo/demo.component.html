@@ -1,7 +1,11 @@
 <section class="container">
 	<h1 class="text-center">Demo - Controls</h1>
 	<hr />
-	<h3>Buttons</h3>
+	<h3>Control Container</h3>
+	<app-control-container-example />
+	<hr />
+	<h3 class="mt-4">Buttons</h3>
+	<hr />
 	<div class="d-flex gap-3">
 		<button lgButton>Primary</button>
 		<button lgButton color="secondary">Secondary</button>
@@ -10,7 +14,8 @@
 		<button lgButton color="info">Info</button>
 		<button lgButton color="success" [disabled]="true">Success</button>
 	</div>
-	<h3>Inputs</h3>
+	<h3 class="mt-4">Inputs</h3>
+	<hr />
 	<lg-input placeholder="Input type text" inputClass="mb-4" />
 	<lg-input type="number" placeholder="Input type number" inputClass="mb-4" />
 	<lg-input type="password" placeholder="Input type password" inputClass="mb-4" />

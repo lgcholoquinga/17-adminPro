@@ -9,7 +9,8 @@
     "paths": {
       "@environments/*": ["environments/*"],
       "@common/*": ["app/common/*"],
-      "@auth/*": ["app/auth/*"]
+      "@auth/*": ["app/auth/*"],
+      "@demo/*": ["app/demo/*"]
     },
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

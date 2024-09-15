@@ -1,0 +1,11 @@
+<fieldset *ngIf="formGroup" [formGroup]="formGroup">
+	<legend>{{ title }}</legend>
+	<div class="mb-3">
+		<label [attr.for]="idFather">Names</label>
+		<input type="text" [attr.id]="idFather" placeholder="Add a name" formControlName="names" />
+	</div>
+	<div class="mb-3">
+		<label [attr.for]="idMother">LastName</label>
+		<input type="text" [attr.id]="idMother" placeholder="Add a lastname" formControlName="lastName" />
+	</div>
+</fieldset>

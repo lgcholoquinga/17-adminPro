@@ -1,0 +1,12 @@
+<h3>Student Form</h3>
+<hr />
+<div class="row">
+	<div class="col-12 col-md-6">
+		<form [formGroup]="form" (ngSubmit)="onSave()" autocomplete="off">
+			<app-person-data-advanced2 title="Father's Data" controlKey="dataFather" />
+			<app-person-data-advanced2 title="Mother's Data" controlKey="dataMother" />
+
+			<button lgButton type="submit" class="w-100">Save</button>
+		</form>
+	</div>
+</div>
