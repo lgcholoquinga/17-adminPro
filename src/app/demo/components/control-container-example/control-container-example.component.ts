@@ -5,6 +5,7 @@ import { LgButtonComponent, LgInputBasicComponent } from '@common/components';
 import { PersonDataComponent } from '../person-data';
 import { PersonDataAdvancedComponent } from '../person-data-advanced';
 import { PersonDataAdvanced2Component } from '../person-data-advanced2';
+import { ControlErrorDirective, FormSubmitDirective } from '@common/directives';
 
 @Component({
 	selector: 'app-control-container-example',
@@ -16,6 +17,8 @@ import { PersonDataAdvanced2Component } from '../person-data-advanced2';
 		PersonDataComponent,
 		PersonDataAdvancedComponent,
 		PersonDataAdvanced2Component,
+		ControlErrorDirective,
+		FormSubmitDirective,
 	],
 	templateUrl: './control-container-example.component.html',
 	styleUrl: './control-container-example.component.scss',

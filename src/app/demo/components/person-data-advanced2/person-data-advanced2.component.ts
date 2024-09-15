@@ -2,11 +2,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { Component, inject, Input, OnInit } from '@angular/core';
 import { ControlContainer, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { LgInputBasicComponent } from '@common/components';
+import { ControlErrorDirective } from '@common/directives';
 
 @Component({
 	selector: 'app-person-data-advanced2',
 	standalone: true,
-	imports: [ReactiveFormsModule, NgIf],
+	imports: [ReactiveFormsModule, NgIf, LgInputBasicComponent, ControlErrorDirective],
 	templateUrl: './person-data-advanced2.component.html',
 	styleUrl: './person-data-advanced2.component.scss',
 })
